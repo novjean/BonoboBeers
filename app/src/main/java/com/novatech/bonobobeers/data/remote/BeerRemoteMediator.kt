@@ -9,6 +9,7 @@ import coil.network.HttpException
 import com.novatech.bonobobeers.data.local.BeerDatabase
 import com.novatech.bonobobeers.data.local.BeerEntity
 import com.novatech.bonobobeers.data.mappers.toBeerEntity
+import kotlinx.coroutines.delay
 import okio.IOException
 
 @OptIn(ExperimentalPagingApi::class)
@@ -38,6 +39,7 @@ class BeerRemoteMediator(
                 }
             }
 
+            delay(2000L)
             val beers = beerApi.getBeers(
                 page = loadKey,
                 pageCount = state.config.pageSize
